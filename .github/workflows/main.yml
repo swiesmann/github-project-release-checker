@@ -8,24 +8,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+          java-package: jdk
+          architecture: x64
+
+      - name: Build release checker
+        run: ./gradlew clean build
+
       - name: Write output test
-        run: echo "::set-output name=releases_as_json::{'hello':'world'}"
-        id: otuput_test
+        run: java -jar build/libs/github-project-release-checker-0.1-all.jar
+        id: output_test
 
       - name: echo the output
-        run: echo "Some JSON ${{ steps.otuput_test.outputs.releases_as_json }}"
-
-#      - uses: actions/setup-java@v1
-#        with:
-#          java-version: '11'
-#          java-package: jdk
-#          architecture: x64
-
-#      - name: Build release checker
-#        run: ./gradlew clean build
-
-#      - name: Check for latest releases
-#        run:
-
-#      - name: Set output
-#        run: echo "::set-output name=action_fruit::strawberry"
+        run: echo "Some JSON ${{ steps.otuput_test.output_test.releases_as_json }}"
