@@ -18,7 +18,7 @@ jobs:
         run: ./gradlew clean build
 
       - name: Write output test
-        run: java -jar build/libs/github-project-release-checker-0.1-all.jar
+        run: java -jar build/libs/github-project-release-checker-0.1-all.jar https://github.com/signalapp/Signal-Desktop
         id: output_test
 
       - name: echo the output
