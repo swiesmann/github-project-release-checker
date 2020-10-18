@@ -1,0 +1,31 @@
+name: check for new releases
+
+on: [ push ]
+
+outputs:
+  releases_as_json:
+    description: "latest releases in github's json format"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Write output test
+        run: echo "::set-output name=releases_as_json::strawberry"
+
+#      - uses: actions/setup-java@v1
+#        with:
+#          java-version: '11'
+#          java-package: jdk
+#          architecture: x64
+
+#      - name: Build release checker
+#        run: ./gradlew clean build
+
+#      - name: Check for latest releases
+#        run:
+
+#      - name: Set output
+#        run: echo "::set-output name=action_fruit::strawberry"
