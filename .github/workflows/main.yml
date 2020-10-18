@@ -22,4 +22,4 @@ jobs:
         id: output_test
 
       - name: echo the output
-        run: echo "Some JSON ${{ steps.otuput_test.output_test.releases_as_json }}"
+        run: echo "Some JSON ${{ steps.output_test.outputs.releases_as_json }}"
