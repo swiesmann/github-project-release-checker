@@ -9,11 +9,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Write output test
-        run: echo "::set-output name=releases_as_json::strawberry"
+        run: echo "::set-output name=releases_as_json::{'hello':'world'}"
         id: otuput_test
 
       - name: echo the output
-        run: echo "The time was ${{ steps.otuput_test.outputs.releases_as_json }}"
+        run: echo "Some JSON ${{ steps.otuput_test.outputs.releases_as_json }}"
 
 #      - uses: actions/setup-java@v1
 #        with:
