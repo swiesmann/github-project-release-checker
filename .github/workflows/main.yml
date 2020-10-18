@@ -2,10 +2,6 @@ name: check for new releases
 
 on: [ push ]
 
-outputs:
-  releases_as_json:
-    description: "latest releases in github's json format"
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,6 +10,10 @@ jobs:
 
       - name: Write output test
         run: echo "::set-output name=releases_as_json::strawberry"
+        id: otuput_test
+
+      - name: echo the output
+        run: echo "The time was ${{ steps.otuput_test.outputs.releases_as_json }}"
 
 #      - uses: actions/setup-java@v1
 #        with:
