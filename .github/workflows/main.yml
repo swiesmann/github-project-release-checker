@@ -20,6 +20,3 @@ jobs:
       - name: Write output test
         run: java -jar build/libs/github-project-release-checker-0.1-all.jar https://github.com/signalapp/Signal-Desktop
         id: output_test
-
-      - name: echo the output
-        run: echo "Some JSON ${{ steps.output_test.outputs.releases_as_json }}"
